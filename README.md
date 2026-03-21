@@ -1,4 +1,5 @@
-#A:
+# A:
+
     1. Edit /client/src/App.js to modify UI
 
     2. Add javascript components inside /client/src/jsComponents and add them inside /client/src/App.js to modify UI
@@ -12,4 +13,4 @@
     6. More details in: https://gemini.google.com/share/683ab16f5c33
 
 
-#B:
+# B:
