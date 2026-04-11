@@ -1,0 +1,351 @@
+#navbar {
+    margin: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    width: 100vw;
+    height: 64px;
+    background-color: var(--bg);
+    align-items: center;
+    box-shadow: var(--shadow-navbar);
+    z-index: 200;
+}
+
+.leftNav {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.leftNavLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    box-shadow: var(--shadow-raised);
+}
+
+/* ── Hamburger ── */
+
+#openMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 10px;
+    transition: box-shadow 0.2s ease, background 0.15s ease;
+    box-shadow: var(--shadow-raised);
+}
+
+#openMenu:hover {
+    box-shadow: var(--shadow-raised-hover);
+}
+
+#openMenu:active {
+    box-shadow: var(--shadow-pressed);
+}
+
+#openMenu.active {
+    box-shadow: var(--shadow-pressed);
+    background: rgba(53, 69, 156, 0.15);
+}
+
+#openMenu svg {
+    fill: var(--text-muted);
+    display: block;
+}
+
+#openMenu.active svg {
+    fill: var(--accent);
+}
+
+#title {
+    color: var(--text);
+    font-size: 28px;
+    font-family: Nunito Bold;
+    margin-left: 4px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ── Search ── */
+
+#searchContainer {
+    flex: 1;
+    max-width: 620px;
+    margin: 0 1rem;
+    position: relative;
+}
+
+#searchForm { width: 100%; }
+
+#searchWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    border: none;
+    border-radius: 12px;
+    padding: 0 12px;
+    height: 38px;
+    transition: box-shadow 0.25s ease;
+    box-shadow: var(--shadow-recessed);
+}
+
+#searchWrapper.focused {
+    box-shadow: var(--shadow-recessed-focus);
+}
+
+#searchIcon {
+    flex-shrink: 0;
+    opacity: 0.35;
+    pointer-events: none;
+    color: var(--text);
+}
+
+#searchBar {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-size: 0.875rem;
+    font-family: inherit;
+    padding: 0;
+    min-width: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#searchBar::-webkit-search-cancel-button { display: none; }
+#searchBar::placeholder { color: var(--text-muted); opacity: 1; }
+
+#searchClear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text);
+    opacity: 0.5;
+    padding: 3px;
+    flex-shrink: 0;
+    transition: opacity 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: var(--shadow-raised);
+}
+
+#searchClear:hover {
+    opacity: 1;
+    box-shadow: var(--shadow-pressed);
+}
+
+#searchSpinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--text-muted);
+    border-top-color: var(--text);
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#searchKbd {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+#searchKbd kbd {
+    font-family: inherit;
+    font-size: 0.68rem;
+    padding: 1px 5px;
+    border-radius: 5px;
+    border: none;
+    background: var(--bg);
+    color: var(--text);
+    opacity: 0.45;
+    line-height: 1.6;
+    box-shadow: var(--shadow-raised);
+}
+
+/* ── Dropdown ── */
+
+#searchDropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow: var(--shadow-float);
+}
+
+.searchResult {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.searchResult:hover { background: var(--neu-light); }
+
+.resultThumb {
+    width: 48px;
+    height: 34px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--bg);
+    box-shadow: var(--shadow-recessed);
+}
+
+.resultThumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.resultThumbPlaceholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.resultInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.resultTitle {
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text);
+}
+
+.resultDesc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#searchEmpty {
+    padding: 16px 14px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+/* ── Buttons ── */
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    background: var(--bg);
+    color: var(--text);
+    font-weight: bold;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+    box-shadow: var(--shadow-raised);
+}
+
+.btn:hover {
+    box-shadow: var(--shadow-raised-hover);
+}
+
+.btn:active {
+    box-shadow: var(--shadow-pressed);
+}
+
+#create {
+    width: 120px;
+    height: 30px;
+}
+
+#notif {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        padding: 0 8px;
+    }
+
+    .leftNav{
+        margin-left: 2px;
+    }
+
+    kbd{
+        display: none;
+    }
+
+    #searchContainer {
+        max-width: 200px;
+        margin: 0 8px;
+    }
+
+    /* Hide Create and Notif buttons on mobile */
+
+    #title {
+        font-size: 20px;
+        display: none;
+    }
+
+    .createT {
+        display: none;
+    }
+
+    #create {
+        width: 30px;
+    }
+
+    #buttons {
+        margin-right: 10px;
+    }
+
+    #openMenu{
+        display: none;
+    }
+}

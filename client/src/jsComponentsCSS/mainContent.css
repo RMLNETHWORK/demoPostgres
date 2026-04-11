@@ -1,0 +1,27 @@
+.temporaryContentHolder {
+    background-color: var(--bg);
+    /* width and left are now driven by inline style */
+    height: calc(100vh - 84px - (2 * var(--general-padding)));
+    position: fixed;
+    top: 74px;
+    margin-left: 2px;
+    padding: var(--general-padding);
+    border-radius: 8px;
+    display: grid;
+
+    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+    .temporaryContentHolder {
+        left: 0 !important;       /* override inline style from JS */
+        width: 100vw !important;
+        top: 74px;
+        bottom: 72px;             /* leave room for bottom sidebar bar */
+        height: unset;
+        border-radius: 0;
+        margin-left: 0;
+        padding: 12px;
+    }
+}

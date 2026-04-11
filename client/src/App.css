@@ -1,15 +1,18 @@
-.App {
-  text-align: center;
+body{
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  background-color: #161617;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 @keyframes App-logo-float {
   0% { transform: translateY(0px); border: 1px solid #777; border-radius: 20%;}
-  50% { transform: translateY(-16px); scale: 106%; border: 1px solid #35459c; border-radius: 20%; filter: drop-shadow(0px 5px 5px #35459c);}
+  50% { transform: translateY(-8px); scale: 102%; border: 1px solid #35459c; border-radius: 20%; filter: drop-shadow(0px 5px 5px #35459c);}
   75% { transform: translateY(0px); border: 1px solid #777; border-radius: 20%;}
   100% { transform: translateY(0px); border: 1px solid #777; border-radius: 20%;}
 }
@@ -17,11 +20,11 @@
 /* Update your class */
 .App-logo {
   animation: App-logo-float 1.8s ease-in-out infinite;
+  height: 24vmin;
+  pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,4 +44,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.contentHolder{
+  position: fixed;
+  bottom: 20vh;
+  right: 20vw;
+}
+
+.PostgresT{
+  font-size: 16px;
+  margin-top: -10px;
+}
+
+.PostgresI{
+  font-size: 10px;
+}
+
+.PLT{
+  font-size: 16px;
+}
+
+.infoP{
+  font-size: 10px;
+  margin-bottom: -10px;
+}
+
+.dbRes{
+  padding: 10px;
+  background-color: #282c34;
+  border: 1px solid white;
 }

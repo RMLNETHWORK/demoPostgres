@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Nunito Bold';
+  src: url('../assets/fonts/Nunito/static/Nunito-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+    /* Base */
+    --bg:               #272727;
+    --bg-raised:        #2e2e2e;
+    --bg-recessed:      #202020;
+
+    /* Accent */
+    --accent:           #35459c;
+    --accent-hover:     #3d50b5;
+
+    /* Text */
+    --text:             #cccccc;
+    --text-muted:       rgba(204, 204, 204, 0.35);
+
+    /* Raw shadow tokens (safe to use inside other rules) */
+    --neu-light:        rgba(255, 255, 255, 0.08);
+    --neu-dark:         rgba(0, 0, 0, 0.5);
+
+    /* Shadow compositions — rgba() inlined, NO var() inside var() */
+    --shadow-raised:
+        -3px -3px 6px rgba(255, 255, 255, 0.08),
+         3px  3px 7px rgba(0, 0, 0, 0.5);
+
+    --shadow-raised-hover:
+        -4px -4px 9px rgba(255, 255, 255, 0.09),
+         4px  4px 10px rgba(0, 0, 0, 0.6);
+
+    --shadow-pressed:
+        inset -3px -3px 6px rgba(255, 255, 255, 0.08),
+        inset  3px  3px 7px rgba(0, 0, 0, 0.5);
+
+    --shadow-recessed:
+        inset -3px -3px 6px rgba(255, 255, 255, 0.08),
+        inset  3px  3px 7px rgba(0, 0, 0, 0.5);
+
+    --shadow-recessed-focus:
+        inset -3px -3px 6px rgba(255, 255, 255, 0.08),
+        inset  3px  3px 8px rgba(0, 0, 0, 0.6),
+        0 0 0 2px rgba(255, 255, 255, 0.07);
+
+    --shadow-float:
+        -4px -4px 8px rgba(255, 255, 255, 0.08),
+         4px  4px 14px rgba(0, 0, 0, 0.6);
+
+    --shadow-navbar:
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+    /* Units */
+    --general-padding: 10px;
+}

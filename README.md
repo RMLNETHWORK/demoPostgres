@@ -2,7 +2,7 @@
 
     1. Edit /client/src/App.js to modify UI
 
-    2. Add javascript components inside /client/src/jsComponents and add them inside /client/src/App.js to modify UI
+    2. Add javascript components inside /client/src/jsComponents and add them inside /client/src/App.js as an element [<funcName />] to modify UI
     
     3. All javascript components inside /client/src/jsComponents must be linked to a Global CSS Master which is the /client/src/App.css
 
@@ -10,7 +10,7 @@
 
     5. The Global CSS Master has all general global variables which includes colors and sizes. The specific CSS files use those variables to alter the jsComponent it stylizes
 
-    6. More details in: https://gemini.google.com/share/683ab16f5c33
+    6. More details in: https://gemini.google.com/share/683ab16f5c33 [syntax] and https://share.google/aimode/LA8ddU6w6kkLzOh91 [html/js variables]
 
 
 # B:
