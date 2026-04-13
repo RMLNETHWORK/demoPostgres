@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import '../jsComponentsCSS/MASTER.css';
 import '../jsComponentsCSS/navbar.css';
-import logo from '../assets/images/logo/PROJECT-LYNXZORA-ICON.svg';
+import logo from '../assets/images/logo/PROJECT-LYNXZORA-ICON.png';
 
 function Navbar({ onHamburgerToggle, sidebarPinned }) {
     const [query, setQuery] = useState('');
