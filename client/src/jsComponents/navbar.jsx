@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import '../jsComponentsCSS/MASTER.css';
 import '../jsComponentsCSS/navbar.css';
 import logo from '../assets/images/logo/PROJECT-LYNXZORA-ICON.png';
+import { applyTheme, getSystemTheme } from '../theme';
 
 function Navbar({ onHamburgerToggle, sidebarPinned }) {
     const [query, setQuery] = useState('');
@@ -9,10 +10,17 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
+
+    // ✅ THEME STATE
+    const [theme, setTheme] = useState('dark');
+
     const inputRef = useRef(null);
     const debounceTimer = useRef(null);
     const wrapperRef = useRef(null);
 
+    /* =========================
+       GLOBAL KEYBINDS
+       ========================= */
     useEffect(() => {
         const handleKeyDown = (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -25,6 +33,9 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
+    /* =========================
+       OUTSIDE CLICK
+       ========================= */
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (wrapperRef.current && !wrapperRef.current.contains(e.target))
@@ -34,12 +45,45 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
+    /* =========================
+       THEME INIT + SYNC
+       ========================= */
+    useEffect(() => {
+        const saved = localStorage.getItem('theme');
+        const initialTheme = saved || getSystemTheme();
+
+        setTheme(initialTheme);
+
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const listener = () => {
+            if (!localStorage.getItem('theme')) {
+                const systemTheme = getSystemTheme();
+                applyTheme(systemTheme);
+                setTheme(systemTheme);
+            }
+        };
+
+        media.addEventListener('change', listener);
+        return () => media.removeEventListener('change', listener);
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+        setTheme(newTheme);
+    };
+
+    /* =========================
+       SEARCH LOGIC
+       ========================= */
     const fetchResults = useCallback(async (searchQuery) => {
         if (!searchQuery.trim()) {
             setResults([]);
             setShowDropdown(false);
             return;
         }
+
         setIsLoading(true);
         try {
             const res = await fetch(`/api/search?q=${encodeURIComponent(searchQuery)}`);
@@ -74,10 +118,12 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
         setQuery(item.title);
     };
 
+    /* =========================
+       UI
+       ========================= */
     return (
         <div id="navbar">
             <div className='leftNav'>
-                {/* Hamburger — active class reflects pinned state */}
                 <button
                     id="openMenu"
                     onClick={onHamburgerToggle}
@@ -107,6 +153,7 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
                             <circle cx="11" cy="11" r="8"/>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                         </svg>
+
                         <input
                             ref={inputRef}
                             type="search"
@@ -120,7 +167,9 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
                             autoComplete="off"
                             aria-label="Search"
                         />
+
                         {isLoading && <div id="searchSpinner" />}
+
                         {query && !isLoading && (
                             <button type="button" id="searchClear" onClick={clearSearch} aria-label="Clear search">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -129,6 +178,7 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
                                 </svg>
                             </button>
                         )}
+
                         {!query && !isFocused && (
                             <span id="searchKbd">
                                 <kbd>Ctrl</kbd><kbd>K</kbd>
@@ -162,6 +212,9 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
             </div>
 
             <div id="buttons">
+                <button className='theme-toggle btn' id='DLtoggle' onClick={toggleTheme}>
+                    {theme === 'dark' ? '☀️' : '🌙'}
+                </button>
                 <button className='btn' id="create">+ <span className="createT">Create</span></button>
                 <button className='btn' id="notif">N</button>
             </div>

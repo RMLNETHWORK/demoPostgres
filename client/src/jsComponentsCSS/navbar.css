@@ -101,7 +101,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: var(--bg);
+    background: var(--bg-re);
     border: none;
     border-radius: 12px;
     padding: 0 12px;
@@ -288,6 +288,8 @@
     cursor: pointer;
     transition: box-shadow 0.2s ease;
     box-shadow: var(--shadow-raised);
+    width: 30px;
+    height: 30px;
 }
 
 .btn:hover {
