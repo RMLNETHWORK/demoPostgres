@@ -1,4 +1,6 @@
-/* Hover trigger zone — thin invisible strip on the left edge */
+/* =========================
+   SIDEBAR — HOVER TRIGGER ZONE
+   ========================= */
 #sidebarHoverZone {
     position: fixed;
     top: 64px;
@@ -8,12 +10,15 @@
     z-index: 99;
 }
 
+/* =========================
+   SIDEBAR — DESKTOP
+   ========================= */
 #sidebar {
     position: fixed;
-    top: 74px;       /* tighter gap below navbar */
-    left: 8px;
-    bottom: 8px;     /* float off bottom edge too */
-    height: auto;    /* let top + bottom define the height */
+    top: 74px;
+    left: 10px;
+    bottom: 10px;
+    height: auto;
     width: 56px;
     background: var(--bg);
     display: flex;
@@ -21,17 +26,18 @@
     justify-content: space-between;
     overflow: hidden;
     z-index: 100;
-    border-radius: 14px;
-    transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.28s ease;
+    border-radius: var(--radius-xl);
+    transition:
+        width      0.28s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.28s ease;
     box-shadow: var(--shadow-navbar);
 }
-
 #sidebar.open {
     width: 220px;
     box-shadow: var(--shadow-navbar);
 }
 
+/* ── Navigation items ── */
 #sidebarNav {
     display: flex;
     flex-direction: column;
@@ -40,11 +46,13 @@
     flex: 1;
 }
 
+/* ── Footer ── */
 #sidebarFooter {
     padding: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border-subtle);   /* was hardcoded rgba */
 }
 
+/* ── Individual item ── */
 .sidebarItem {
     display: flex;
     flex-direction: row;
@@ -54,23 +62,21 @@
     padding: 10px;
     background: transparent;
     border: none;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     color: var(--text);
+    font-family: inherit;
     text-align: left;
     white-space: nowrap;
     transition: background 0.15s ease, box-shadow 0.2s ease;
 }
-
-.sidebarItem:hover {
+.sidebarItem:hover  {
     background: var(--bg);
     box-shadow: var(--shadow-raised);
 }
+.sidebarItem:active { box-shadow: var(--shadow-pressed); }
 
-.sidebarItem:active {
-    box-shadow: var(--shadow-pressed);
-}
-
+/* ── Icon ── */
 .sidebarIcon {
     font-size: 18px;
     flex-shrink: 0;
@@ -80,25 +86,28 @@
     margin-left: -2px;
 }
 
+/* ── Label ── */
 .sidebarLabel {
     font-size: 0.875rem;
     font-family: 'Nunito Bold', sans-serif;
+    color: var(--text);
     opacity: 0;
     transform: translateX(-6px);
-    transition: opacity 0.2s ease 0.05s, transform 0.2s ease 0.05s;
-    color: var(--text);
+    transition:
+        opacity   0.2s ease 0.05s,
+        transform 0.2s ease 0.05s;
 }
-
 #sidebar.open .sidebarLabel {
     opacity: 1;
     transform: translateX(0);
 }
 
+/* =========================
+   RESPONSIVE — MOBILE
+   ========================= */
 @media (max-width: 768px) {
     /* Kill hover zone on touch devices */
-    #sidebarHoverZone {
-        display: none;
-    }
+    #sidebarHoverZone { display: none; }
 
     #sidebar {
         top: unset;
@@ -106,23 +115,23 @@
         left: 0;
         right: 0;
         width: 100vw;
-        height: 64px;          /* collapsed = thin bottom bar */
-        border-radius: 16px 16px 0 0;
+        height: 64px;
+        border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
         flex-direction: row;
         justify-content: center;
-        transition: height 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                    box-shadow 0.28s ease;
+        transition:
+            height     0.28s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.28s ease;
         box-shadow: var(--shadow-navbar);
     }
-
     #sidebar.open {
         width: 100vw;
-        height: 340px;         /* expanded = drawer slides up */
+        height: 340px;
         box-shadow: var(--shadow-navbar);
     }
 
     #sidebarNav {
-        width: inherit;
+        width: 100%;
         flex-direction: row;
         padding: 8px 12px;
         gap: 0;
@@ -130,7 +139,6 @@
         align-items: center;
         overflow-x: auto;
     }
-
     #sidebar.open #sidebarNav {
         flex-direction: column;
         justify-content: flex-start;
@@ -139,18 +147,10 @@
         gap: 4px;
     }
 
-    #sidebarFooter {
-        display: none; /* hide on collapsed mobile, show when open */
-    }
+    #sidebarFooter { display: none; }
+    #sidebar.open #sidebarFooter { display: block; }
 
-    #sidebar.open #sidebarFooter {
-        display: block;
-    }
-
-    .sidebarLabel {
-        display: none;
-    }
-
+    .sidebarLabel { display: none; }
     #sidebar.open .sidebarLabel {
         display: inline;
         opacity: 1;

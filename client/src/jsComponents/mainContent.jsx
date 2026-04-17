@@ -28,7 +28,7 @@ function MainContent({ sidebarPinned }) {
 
         const sidebarWidth = sidebarPinned ? SIDEBAR_EXPANDED : SIDEBAR_COLLAPSED;
         const contentLeft  = SIDEBAR_LEFT + sidebarWidth + SIDEBAR_GAP;
-        const RIGHT_MARGIN = 30;
+        const RIGHT_MARGIN = 18;
 
         // On mobile, let CSS handle everything
         const inlineStyle = isMobile ? {} : {

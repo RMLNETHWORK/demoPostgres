@@ -1,31 +1,54 @@
+/* =========================
+   MAIN CONTENT AREA
+   ========================= */
+
+/*
+   Uniform gap math (--general-padding = 10px):
+   ┌─ navbar: 64px ────────────────────────────────────────┐
+   │  10px gap (--general-padding)                          │
+   ├─ content top edge ──────────────── 10px (right edge) ─┤
+   │                                                        │
+   ├─ content bottom edge ──────────── 10px (bottom edge) ─┘
+   
+   top    = 64px + 10px = 74px
+   height = 100vh - 64px - 10px(top) - 10px(bottom) = 100vh - 84px
+   left   = JS: SIDEBAR_LEFT + sidebarWidth + SIDEBAR_GAP (10px)
+   width  = JS: 100vw - left - RIGHT_MARGIN (10px)
+*/
+
 .temporaryContentHolder {
     background-color: var(--bg);
-    /* width and left are now driven by inline style */
-    height: calc(100vh - 84px - (2 * var(--general-padding)));
     position: fixed;
-    top: 74px;
-    margin-left: 2px;
+    top: calc(64px + var(--general-padding));              /* 74px */
+    margin-left: calc(var(--general-padding) - 4px);
+    height: calc(100vh - 64px - 2 * var(--general-padding)); /* = 100vh - 84px; uniform 10px top+bottom */
+    /* left & width set by JS inline style */
     padding: var(--general-padding);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     display: grid;
-    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+        left  0.28s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-navbar);
 }
 
-p, strong {
+/* Scoped — avoids overriding text color in third-party components */
+.temporaryContentHolder p,
+.temporaryContentHolder strong {
     color: var(--text);
 }
 
+/* =========================
+   RESPONSIVE — MOBILE
+   ========================= */
 @media (max-width: 768px) {
     .temporaryContentHolder {
-        left: 0 !important;       /* override inline style from JS */
+        left: 0 !important;
         width: 100vw !important;
         top: 74px;
-        bottom: 72px;             /* leave room for bottom sidebar bar */
+        bottom: 72px;
         height: unset;
         border-radius: 0;
-        margin-left: 0;
         padding: 12px;
     }
 }

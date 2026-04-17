@@ -1,64 +1,72 @@
 @font-face {
-  font-family: 'Nunito Bold';
-  src: url('../assets/fonts/Nunito/static/Nunito-Bold.ttf');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Nunito Bold';
+    src: url('../assets/fonts/Nunito/static/Nunito-Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* =========================
    DARK THEME (DEFAULT)
    ========================= */
 :root {
-    /* Base */
+    /* ── Base ── */
     --bg:               #272727;
     --bg-raised:        #2e2e2e;
     --bg-recessed:      #202020;
 
-    /* Accent */
+    /* ── Accent ── */
     --accent:           #35459c;
     --accent-hover:     #3d50b5;
 
-    /* Text */
+    /* ── Text ── */
     --text:             #cccccc;
     --text-muted:       rgba(204, 204, 204, 0.35);
 
-    /* Raw shadow tokens */
+    /* ── Border ── */
+    --border-subtle:    rgba(255, 255, 255, 0.06);
+
+    /* ── Raw shadow tokens ── */
     --neu-light:        rgba(255, 255, 255, 0.08);
     --neu-dark:         rgba(0, 0, 0, 0.5);
 
-    /* Shadows */
+    /* ── Shadows ── */
     --shadow-raised:
-        -3px -3px 6px rgba(255, 255, 255, 0.08),
-         3px  3px 7px rgba(0, 0, 0, 0.5);
-
+        -3px -3px 6px  rgba(255, 255, 255, 0.08),
+         3px  3px 7px  rgba(0, 0, 0, 0.5);
+    --shadow-raised-flat:
+        -3px -3px 6px  rgba(255, 255, 255, 0),
+         3px  3px 7px  rgba(0, 0, 0, 0.5);
     --shadow-raised-hover:
-        -4px -4px 9px rgba(255, 255, 255, 0.09),
+        -4px -4px 9px  rgba(255, 255, 255, 0.09),
          4px  4px 10px rgba(0, 0, 0, 0.6);
-
     --shadow-pressed:
-        inset -3px -3px 6px rgba(255, 255, 255, 0.08),
-        inset  3px  3px 7px rgba(0, 0, 0, 0.5);
-
+        inset -3px -3px 6px  rgba(255, 255, 255, 0.08),
+        inset  3px  3px 7px  rgba(0, 0, 0, 0.5);
     --shadow-recessed:
-        inset -3px -3px 6px rgba(255, 255, 255, 0.08),
-        inset  3px  3px 7px rgba(0, 0, 0, 0.5);
-
+        inset -3px -3px 6px  rgba(255, 255, 255, 0.08),
+        inset  3px  3px 7px  rgba(0, 0, 0, 0.5);
     --shadow-recessed-focus:
-        inset -3px -3px 6px rgba(255, 255, 255, 0.08),
-        inset  3px  3px 8px rgba(0, 0, 0, 0.6),
+        inset -3px -3px 6px  rgba(255, 255, 255, 0.08),
+        inset  3px  3px 8px  rgba(0, 0, 0, 0.6),
         0 0 0 2px rgba(255, 255, 255, 0.07);
-
     --shadow-float:
-        -4px -4px 8px rgba(255, 255, 255, 0.08),
+        -4px -4px 8px  rgba(255, 255, 255, 0.08),
          4px  4px 14px rgba(0, 0, 0, 0.6);
-
     --shadow-navbar:
         0 4px 8px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0  1px 0 rgba(255, 255, 255, 0.08),
         inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 
-    /* Units */
+    /* ── Radius scale ── */
+    --radius-xs:  6px;  
+    --radius-sm:  8px;
+    --radius-md:  10px;
+    --radius-lg:  12px;
+    --radius-xl:  14px;
+    --radius-2xl: 16px;
+
+    /* ── Spacing ── */
     --general-padding: 10px;
 }
 
@@ -66,70 +74,69 @@
    LIGHT THEME OVERRIDE
    ========================= */
 [data-theme="light"] {
-    /* Base - A clean, slightly cool off-white */
+    /* ── Base ── */
     --bg:               #e0e5ec;
-    
-    /* Neumorphism pops best when the raised element exactly matches the background */
-    --bg-raised:        #e0e5ec; 
-    --bg-recessed:      #adadcb;
+    --bg-raised:        #e0e5ec;
+    --bg-recessed:      #b9c1cb;
 
-    /* Accent */
+    /* ── Accent ── */
     --accent:           #35459c;
-    /* Made hover slightly more vibrant so it doesn't get lost in the light theme */
-    --accent-hover:     #4a5cbe; 
+    --accent-hover:     #4a5cbe;
 
-    /* Text - A soft, deep slate instead of harsh near-black for better readability */
+    /* ── Text ── */
     --text:             #4a4e69;
     --text-muted:       rgba(74, 78, 105, 0.55);
 
-    /* Raw shadow tokens */
+    /* ── Border ── */
+    --border-subtle:    rgba(163, 177, 198, 0.35);
+
+    /* ── Raw shadow tokens ── */
     --neu-light:        rgba(255, 255, 255, 0.9);
-    
-    /* Tinted shadow: using a cool grayish-blue instead of pure black prevents muddiness */
     --neu-dark:         rgba(163, 177, 198, 0.6);
 
-    /* Shadows (Softer, wider spread for a more premium look) */
+    /* ── Shadows ── */
     --shadow-raised:
         -4px -4px 10px rgba(255, 255, 255, 0.9),
          4px  4px 10px rgba(138, 149, 165, 0.6);
-
-    --shadow-raised2:
+    --shadow-raised-flat:
         -4px -4px 10px rgba(255, 255, 255, 0),
          4px  4px 10px rgba(138, 149, 165, 0.6);
-
     --shadow-raised-hover:
         -6px -6px 14px rgba(255, 255, 255, 0.95),
          6px  6px 14px rgba(163, 177, 198, 0.7);
-
     --shadow-pressed:
         inset -4px -4px 10px rgba(255, 255, 255, 0.9),
         inset  4px  4px 10px rgba(163, 177, 198, 0.6);
-
     --shadow-recessed:
         inset -4px -4px 10px rgba(255, 255, 255, 0.9),
         inset  4px  4px 10px rgba(163, 177, 198, 0.6);
-
     --shadow-recessed-focus:
         inset -4px -4px 10px rgba(255, 255, 255, 0.9),
         inset  4px  4px 10px rgba(163, 177, 198, 0.7),
-        0 0 0 2px rgba(53, 69, 156, 0.15); /* Replaced the hard gray ring with a subtle accent tint */
-
+        0 0 0 2px rgba(53, 69, 156, 0.15);
     --shadow-float:
         -6px -6px 14px rgba(255, 255, 255, 0.9),
          6px  6px 14px rgba(163, 177, 198, 0.6);
-
     --shadow-navbar:
         0 4px 12px rgba(163, 177, 198, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0  1px 0 rgba(255, 255, 255, 0.9),
         inset 0 -1px 0 rgba(163, 177, 198, 0.3);
 }
 
 /* =========================
    GLOBAL APPLICATION
    ========================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
+    padding: 0;
     background-color: var(--bg);
     color: var(--text);
-    transition: all 0.3s ease;
     font-family: 'Nunito Bold', Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
