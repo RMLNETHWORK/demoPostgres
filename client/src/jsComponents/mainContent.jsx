@@ -3,6 +3,7 @@ import '../App.css';
 import myLogo from '../assets/images/logo/PROJECT-LYNXZORA-ICON.png';
 import '../jsComponentsCSS/MASTER.css';
 import '../jsComponentsCSS/mainContent.css';
+import "../assets/images/icons/uicons-bold-rounded/css/uicons-bold-rounded.css";
 
 // Sidebar dimensions — must match sidebar.css exactly
 const SIDEBAR_COLLAPSED = 56;   // width when unpinned

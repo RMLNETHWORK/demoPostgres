@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../jsComponentsCSS/MASTER.css';
 import '../jsComponentsCSS/sidebar.css';
+import "../assets/images/icons/uicons-bold-rounded/css/uicons-bold-rounded.css";
 
 const NAV_ITEMS = [
     { icon: '⊞', label: 'Home' },

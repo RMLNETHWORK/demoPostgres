@@ -82,7 +82,7 @@
 /* ── Search ── */
 #searchContainer {
     flex: 1;
-    max-width: 620px;
+    max-width: 50vw;
     margin: 0 1rem;
     position: relative;
 }
@@ -277,7 +277,34 @@
 #create {
     width: 120px;
     height: 38px;
-    gap: 6px;
+    display: flex;
+    padding-left: 16px;
+    padding-right: 16px;
+    justify-content: space-around;
+}
+
+.fi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fi-br-bell{
+    font-size: 18px;
+}
+
+.fi-br-plus{
+    font-size: 16px;
+}
+
+.fi-br-sun{
+    font-size: 18px;
+    color: #ddbb00;
+}
+
+.fi-br-moon{
+    transform: rotate(210deg);
+    font-size: 18px;
 }
 
 /* =========================
@@ -294,8 +321,8 @@
     }
 
     #searchContainer {
-        max-width: 200px;
-        margin: 0 8px;
+        max-width: 50vw;
+        margin: 8px;
     }
 
     kbd { display: none; }
@@ -303,7 +330,10 @@
     .createT { display: none; }
 
     #create {
-        width: 38px;   /* collapses to square like other .btn elements */
+        width: 38px;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: space-around;
     }
 
     #buttons { margin-right: 10px; }

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import '../jsComponentsCSS/MASTER.css';
 import '../jsComponentsCSS/navbar.css';
+import "../assets/images/icons/uicons-bold-rounded/css/uicons-bold-rounded.css";
 import logo from '../assets/images/logo/PROJECT-LYNXZORA-ICON.png';
 import { applyTheme, getSystemTheme } from '../theme';
 
@@ -213,10 +214,10 @@ function Navbar({ onHamburgerToggle, sidebarPinned }) {
 
             <div id="buttons">
                 <button className='theme-toggle btn' id='DLtoggle' onClick={toggleTheme}>
-                    {theme === 'dark' ? '☀️' : '🌙'}
+                    {theme === 'dark' ? <span class="fi fi-br-sun"/> : <span class="fi fi-br-moon"/>}
                 </button>
-                <button className='btn' id="create">+ <span className="createT">Create</span></button>
-                <button className='btn' id="notif">N</button>
+                <button className='btn' id="create"><span class="fi fi-br-plus"/><span className="createT">Create</span></button>
+                <button className='btn' id="notif"><span class="fi fi-br-bell"/></button>
             </div>
         </div>
     );
