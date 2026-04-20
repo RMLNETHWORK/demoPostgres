@@ -102,6 +102,13 @@
     transform: translateX(0);
 }
 
+.fi-br-settings{
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    font-size: 18px;
+}
+
 /* =========================
    RESPONSIVE — MOBILE
    ========================= */
@@ -155,5 +162,13 @@
         display: inline;
         opacity: 1;
         transform: none;
+    }
+
+    .sidebarItem{
+        justify-content: center;
+    }
+
+    #sidebar.open .sidebarItem {
+        justify-content: flex-start;
     }
 }

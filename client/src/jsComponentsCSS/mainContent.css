@@ -44,7 +44,7 @@
 @media (max-width: 768px) {
     .temporaryContentHolder {
         left: 4px !important;
-        width: 95.6vw !important;
+        width: calc(100vw - 20px) !important;
         top: 74px;
         bottom: 72px;
         height: unset;

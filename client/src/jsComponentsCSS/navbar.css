@@ -19,7 +19,7 @@
 
 /* ── Left side ── */
 .leftNav {
-    margin-left: 8px;
+    margin-left: 18px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,7 +49,6 @@
     border: none;
     cursor: pointer;
     padding: 8px;
-    margin-left: 8px;
     margin-right: 8px;
     border-radius: var(--radius-md);
     transition: box-shadow 0.2s ease, background 0.15s ease;
@@ -77,13 +76,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 20px;
 }
 
 /* ── Search ── */
 #searchContainer {
     flex: 1;
     max-width: 50vw;
-    margin: 0 1rem;
+    margin: 10px;
     position: relative;
 }
 
@@ -265,7 +265,7 @@
     height: 38px;
     border-radius: var(--radius-md);
     border: none;
-    margin-right: 10px;
+    margin-left: 10px;
     cursor: pointer;
     transition: box-shadow 0.2s ease;
     box-shadow: var(--shadow-raised);
@@ -310,8 +310,11 @@
 /* =========================
    RESPONSIVE — MOBILE
    ========================= */
-@media (max-width: 768px) {
-    #navbar { padding: 0 8px; }
+@media (max-width: 1024px) {
+    #navbar {
+        padding: 0 8px;
+
+    }
 
     .leftNav { margin-left: 2px; }
 
@@ -322,7 +325,7 @@
 
     #searchContainer {
         max-width: 50vw;
-        margin: 8px;
+        margin-right: 0px;
     }
 
     kbd { display: none; }
